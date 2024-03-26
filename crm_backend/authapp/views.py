@@ -74,7 +74,7 @@ class DeleteViewSet(viewsets.ViewSet):
 class LeadViewSet(viewsets.ModelViewSet):
     queryset = Lead.objects.all()
     serializer_class = LeadSerializer
-    
+    permission_classes = [IsAuthenticated]
     def get_queryset(self):
         status = self.request.query_params.get('status')
         if status:
